@@ -22,7 +22,7 @@ export default function HomePage() {
          arrow functions like the one below aren't permenant, they don't exist once they
          finish running, a throwaway thingy. ALSO, i hate tailwind. this is GROSS.*/}
         {mockImages.map((image) =>(
-          <div key={image.id} className="w-48">
+          <div key={image.id} className="w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500">
             <img src={image.url} />
           </div>
         ))}
