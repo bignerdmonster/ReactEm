@@ -1,36 +1,30 @@
 import Link from "next/link";
 
+const mockUrls = [
+  "https://utfs.io/f/3a04e010-faa1-4827-8a41-6604566cc1e7-mz2ifv.jpg",
+  "https://utfs.io/f/5137ee85-cf76-484f-b027-40e3dd41ba74-a93uc1.jpg",
+  "https://utfs.io/f/889c4afb-bb68-4ae3-967a-0ea17f3fc56d-8zo0oj.jpg",
+  "https://utfs.io/f/73c6e50f-1b41-4acb-9345-81e3b92b83ea-1mpyro.png",
+  "https://utfs.io/f/ef7da06f-4fdc-4049-b6a9-8a4acbedb959-4xfp42.png",
+  "https://utfs.io/f/7375bacd-939b-49bb-a9ef-bb7ba1d5d093-xlrwdi.jpg"
+];
+const mockImages = mockUrls.map((url, index) => ({
+  id: index + 1,
+  url,
+}));
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
+    <main className="">
+      <div className="flex flex-wrap gap-4">
+        {/* curly braces are javascript inserts into the html, this is a js comment lol
+         dotmap is just a way to iterate over an array (?) (like `for i in x` in python)
+         arrow functions like the one below aren't permenant, they don't exist once they
+         finish running, a throwaway thingy. ALSO, i hate tailwind. this is GROSS.*/}
+        {mockImages.map((image) =>(
+          <div key={image.id} className="w-48">
+            <img src={image.url} />
+          </div>
+        ))}
       </div>
     </main>
   );
