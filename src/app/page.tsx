@@ -12,9 +12,10 @@ const mockImages = mockUrls.map((url, index) => ({
   id: index + 1,
   url,
 }));
+/* why on god's green earth don't we just use a dictionary */
 export default function HomePage() {
   return (
-    <main className="">
+    <main className="bg-him">
       <div className="flex flex-wrap gap-4">
         {/* curly braces are javascript inserts into the html, this is a js comment lol
          dotmap is just a way to iterate over an array (?) (like `for i in x` in python)

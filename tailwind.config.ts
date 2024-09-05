@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
+      backgroundImage: {
+        'him': "url('https://mhs-cte.weebly.com/uploads/1/2/1/9/121936271/published/sta-sta-hanagami-blaise.jpg?1571943510')",
+      },
     },
   },
   plugins: [],
