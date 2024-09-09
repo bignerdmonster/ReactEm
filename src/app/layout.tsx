@@ -15,9 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <div className="">
-
-        </div>
+        <div className="w-full">First Layout</div>
         {children}
         </body>
     </html>
