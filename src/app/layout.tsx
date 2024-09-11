@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
@@ -22,6 +22,7 @@ export default function RootLayout({
           <button className="btn mx-auto">Button</button>
         </div>
         {children}
+        <SpeedInsights />
         </body>
     </html>
   );
