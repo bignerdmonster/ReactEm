@@ -16,7 +16,10 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <div className="w-full">
-          <h1 className="mx-auto text-center text-rose-700 text-obese font-bold hover:underline">First Layout</h1>
+          <h1 className="mx-auto text-center text-rose-700 text-obese font-bold hover:underline">tailwind css could only be crafted by the devil himself</h1>
+        </div>
+        <div className="w-full">
+          <button className="btn mx-auto">Button</button>
         </div>
         {children}
         </body>
