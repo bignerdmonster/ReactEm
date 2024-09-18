@@ -14,7 +14,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
+      <body className="">
       <div className="navbar bg-base-100">
   <div className="flex-1">
     <a className="btn btn-ghost text-xl">ReactEm</a>
