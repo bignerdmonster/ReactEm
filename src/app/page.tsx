@@ -30,6 +30,11 @@ export default function HomePage() {
           </div>
         ))}
       </div>
+      <br></br>
+      <div className="prose">
+        <h1> A <strong></strong>little thing </h1>
+        <p> Yuppers, this is cool! </p>
+      </div>
     </main>
   );
 }
