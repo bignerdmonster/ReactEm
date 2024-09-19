@@ -16,7 +16,7 @@ const mockImages = mockUrls.map((url, index) => ({
 export default function HomePage() {
   return (
     <main className=""> {/* bg-him for the funny but it's distracting for the rest of them :p */}
-      <div className="w-4/5 py-50 bg-white content-center">
+      <div className="mx-auto w-4/5 pd bg-white content-center text-center">
         <h1 className="text-2xl text-sky-700 bg-gradient-to-l from-fuchsia-300 to-cyan-700 underline decoration-double hover:blur-lg"> not super fond of this site so far</h1>
       </div>
       <div className="flex flex-wrap gap-4">
