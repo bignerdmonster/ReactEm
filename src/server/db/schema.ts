@@ -16,7 +16,7 @@ import {
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = pgTableCreator((name) => `ReactEm_${name}`);
+export const createTable = pgTableCreator((name) => `react-em-fbprog2_${name}`);
 
 export const posts = createTable(
   "post",
