@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { db } from "~/server/db";
 
 const mockUrls = [
   "https://utfs.io/f/3a04e010-faa1-4827-8a41-6604566cc1e7-mz2ifv.jpg",
@@ -13,9 +14,11 @@ const mockImages = mockUrls.map((url, index) => ({
   url,
 }));
 /* why on god's green earth don't we just use a dictionary */
-export default function HomePage() {
+export default async function HomePage() {
+  const posts = await db.query.posts.findMany(); {/*await holds off the async function from killing itself as a way to pass the time it takes for the db to query, 
+    findMany automatically uses the key as the id, basically automatically mapping the db*/};
   return (
-    <main className=""> {/* bg-him for the funny but it's distracting for the rest of them :p */}
+    <main className=""> {/* bg-him for the funny but it's distracting for others*/}
       <div className="mx-auto w-4/5 pd bg-white content-center text-center">
         <h1 className="text-2xl text-sky-700 bg-gradient-to-l from-fuchsia-300 to-cyan-700 underline decoration-double hover:blur-lg"> not super fond of this site so far</h1>
       </div>
@@ -24,6 +27,9 @@ export default function HomePage() {
          dotmap is just a way to iterate over an array (?) (like `for i in x` in python)
          arrow functions like the one below aren't permenant, they don't exist once they
          finish running, a throwaway thingy. ALSO, i hate tailwind. this is GROSS.*/}
+        {posts.map((post) => (
+          <div key={post.id} className="">
+          id:{post.id},name:{post.name}</div> ))}
         {mockImages.map((image) =>(
           <div key={image.id} className="w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500 blur-sm hover:blur-none">
             <img src={image.url} />
