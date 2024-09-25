@@ -6,13 +6,14 @@ export default async function HomePage() {
     findMany automatically uses the key as the id, basically automatically mapping the db*/};
   return (
     <main className=""> {/* bg-him for the funny but it's distracting for others*/}
-      <div className="mx-auto w-4/5 pd bg-white content-center text-center">
+      <div className="mx-auto w-2/5 py-10 content-center text-center">
         <h1 className="text-2xl text-sky-700 bg-gradient-to-l from-fuchsia-300 to-cyan-700 underline decoration-double hover:blur-lg"> not super fond of this site so far</h1>
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="justify-center flex flex-wrap gap-16">
         {images.map((image) =>(
           <div key={image.id} className="w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500 blur-sm hover:blur-none">
             <img src={image.url} alt={image.name} title={image.name}/>
+            <div className="text-orange-600 text-lg text-center">{image.name}</div>
           </div>
         ))}
       </div>
