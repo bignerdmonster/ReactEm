@@ -12,7 +12,7 @@ export default async function HomePage() {
       <div className="flex flex-wrap gap-4">
         {images.map((image) =>(
           <div key={image.id} className="w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500 blur-sm hover:blur-none">
-            <img src={image.url} alt={image.name}/>
+            <img src={image.url} alt={image.name} title={image.name}/>
           </div>
         ))}
       </div>
