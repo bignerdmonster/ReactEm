@@ -8,6 +8,7 @@ import {
   serial,
   timestamp,
   varchar,
+  json
 } from "drizzle-orm/pg-core";
 
 /**
@@ -33,5 +34,23 @@ export const images = createTable(
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
+  })
+);
+export const squidwarb = createTable(
+  "squidwarb",
+  {
+    id: serial("id").primaryKey(),
+    userName: varchar("userName", { length: 64 }).notNull(),
+    theCreds: varchar("theCreds", { length: 32}).notNull(),
+    theyStuff: json("theyStuff"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
+      () => new Date()
+    ),
+  },
+  (example) => ({
+    userNameIndex: index("userName_idx").on(example.userName),
   })
 );
