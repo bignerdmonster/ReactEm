@@ -23,7 +23,7 @@ export default async function HomePage() {
         <h1> A little thing </h1>
         <p> Yuppers, this is cool! </p>
       </div>
-      <div className="divider w-3/4 mx-auto content-center"></div>
+      <div className="divider w-100 mx-auto content-center"></div>
       <div className=" align-center mx-auto card bg-base-300 rounded-box grid w-3/4 h-40 place-items-center">
         <p> hi! </p>
       </div>
