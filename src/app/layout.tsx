@@ -1,11 +1,10 @@
 import "~/styles/globals.css";
 import {ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton} from '@clerk/nextjs';
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "literally unreactable dude",
+  title: "Reac",
   description: "ba zin ga",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
@@ -43,9 +42,7 @@ export default function RootLayout({
         <div className="w-full">
           <h1 className="mx-auto text-center text-rose-700 text-obese font-bold hover:underline">ReactEm</h1>
         </div>
-        
         {children}
-        <SpeedInsights />
         </body>
     </html>
     </ClerkProvider>

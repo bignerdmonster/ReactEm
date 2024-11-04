@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { db } from "~/server/db";
-
+import UploadThangButton from "./_components/button";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 export default async function HomePage() {
   const images = await db.query.images.findMany(); {/*await holds off the async function from killing itself as a way to pass the time it takes for the db to query, 
     findMany automatically uses the key as the id, basically automatically mapping the db*/};
@@ -25,7 +26,8 @@ export default async function HomePage() {
       </div>
       <div className="divider w-100 mx-auto content-center"></div>
       <div className=" align-center mx-auto card bg-base-300 rounded-box grid w-3/4 h-40 place-items-center">
-        <p> hi! </p>
+        <SignedIn><p>Upload a thang here!</p><UploadThangButton></UploadThangButton></SignedIn>
+        <SignedOut><SignInButton>Sign In to upload a thang!</SignInButton></SignedOut>
       </div>
     </main>
   );
