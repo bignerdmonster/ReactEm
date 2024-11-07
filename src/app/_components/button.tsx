@@ -11,7 +11,6 @@ export default function UploadThangButton() {
     onClientUploadComplete={(res) => {
       // Do something with the response
         console.log("Files: ", res);
-        alert("Upload Completed");
         router.refresh();
     }}
     onUploadError={(error: Error) => {
