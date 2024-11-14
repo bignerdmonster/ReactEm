@@ -10,17 +10,17 @@ const f = createUploadthing();
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
   // Define as many FileRoutes as you like, each with a unique routeSlug
-  imageUploader: f({ image: { maxFileSize: "8MB" } })
+  imageUploader: f({ image: { maxFileSize: "8MB", maxFileCount: 40 } })
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
       // This code runs on your server before upload
-      const user = auth();
+      const user = await(auth());
 
       // If you throw, the user will not be able to upload
-      if (!(await user).userId) throw new Error("Unauthorized");
+      if (!user.userId) throw new Error("Unauthorized");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
-      return { userId: (await user).userId };
+      return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
       // This code RUNS ON YOUR SERVER after upload
@@ -31,6 +31,7 @@ export const ourFileRouter = {
       await db.insert(images).values({
         name: file.name,
         url: file.url,
+        userId: metadata.userId
       });
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback

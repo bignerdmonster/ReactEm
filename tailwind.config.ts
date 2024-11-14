@@ -17,6 +17,7 @@ export default withUt({
       },
       animation:{
         'shook': '1s linear infinite',
+        'border': 'border 3s linear infinite',
       },
       keyframes: {
         'shook' : {
@@ -29,6 +30,9 @@ export default withUt({
           '40%, 60%': {
             transform: 'translate3d(4px, 0, 0)'},
         },
+        'border': {
+          to: { '--border-angle': '360deg' },
+        }
       },
     },
   },

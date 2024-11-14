@@ -26,7 +26,11 @@ export default async function HomePage() {
       </div>
       <div className="divider w-100 mx-auto content-center"></div>
       <div className=" align-center mx-auto card bg-base-300 rounded-box grid w-3/4 h-40 place-items-center">
-        <SignedIn><p>Upload a thang here!</p><UploadThangButton></UploadThangButton></SignedIn>
+        <SignedIn><p className="bg-gradient-to-r from-fucshia-500">Upload a thang here!</p>
+        <UploadThangButton className={
+          "ut-button:bg-gradient-to-l ut-button:from-fuchsia-400 ut-button:to-orange-500 ut-uploading:bg-red-400"
+          }>
+          </UploadThangButton></SignedIn>
         <SignedOut><SignInButton>Sign In to upload a thang!</SignInButton></SignedOut>
       </div>
     </main>

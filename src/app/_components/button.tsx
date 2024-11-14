@@ -3,10 +3,10 @@
 import { useRouter } from "next/navigation";
 import { UploadButton } from "~/utils/uploadthing";
 
-export default function UploadThangButton() {
+export default function UploadThangButton({className = ""}) {
   const router = useRouter();
   return (
-      <UploadButton
+      <UploadButton className={className}
         endpoint="imageUploader"
     onClientUploadComplete={(res) => {
       // Do something with the response
