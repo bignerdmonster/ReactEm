@@ -1,14 +1,16 @@
 import Link from "next/link";
-import { db } from "~/server/db";
 import UploadThangButton from "./_components/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { getMyImages } from "~/server/queries";
 export default async function HomePage() {
-  const images = await db.query.images.findMany(); {/*await holds off the async function from killing itself as a way to pass the time it takes for the db to query, 
-    findMany automatically uses the key as the id, basically automatically mapping the db*/};
+  const images = await getMyImages().catch((error) => {
+    console.error(error);
+    return [{id:0,url:"https://utfs.io/f/PNDxZbTEcFzd7Pva8oB3xTwvbBE3KnJLc0t57G8CAVSlFr9m",createdAt:"the basis of authorization and permissions",name:"Sign in to see images!"}]
+  })
   return (
     <main className=""> {/* bg-him for the funny but it's distracting for others*/}
       <div className="mx-auto w-1/5 py-10 content-center text-center">
-        <h1 className="text-2xl text-sky-700 bg-gradient-to-l from-fuchsia-300/85 to-cyan-700/95 underline decoration-double rounded-md hover:blur-lg"> chill w this rn</h1>
+        <h1 className="text-2xl text-orange-500 bg-slate-700/55 underline decoration-double rounded-md hover:animate-spin">Image Gallery!</h1>
       </div>
       <div className="justify-center flex flex-wrap items-center gap-16 overflow-visible">
         {images.map((image) =>(
