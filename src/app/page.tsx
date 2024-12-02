@@ -10,17 +10,19 @@ export default async function HomePage() {
   })
   return (
     <main className=""> {/* bg-him for the funny but it's distracting for others*/}
-      <div className="mx-auto w-1/5 py-10 content-center text-center">
-        <h1 className="text-2xl text-orange-500 bg-slate-700/55 underline decoration-double rounded-md hover:animate-spin">Image Gallery!</h1>
-      </div>
-      <div className="justify-center flex flex-wrap items-center gap-16 overflow-visible">
-        {images != null && images.map((image) =>(
-          <div key={image.id} className="group flex flex-col flex-shrink w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500 hover:scale-150">
-            <img className="group-hover:animate-bounce"src={image.url} alt={image.name} title={image.name}/>
-            <div className="text-orange-600 text-lg text-center group-hover:font-black group-hover:underline group-hover:text-">{image.name}</div>
-            <div className= "text-xs text-slate-800 blur-md group-hover:blur-0">Created on {image.createdAt.toString()}</div>
+      <div className="mx-auto bg-slate-700 card w-11/12 py-10 rounded-box">
+      <h1 className="text-4xl text-center text-orange-500 pb-10 font-bold hover:font-normal hover:animate-ping">Image Gallery!</h1>
+        <div className="mx-auto place-items-center">
+          <div className="justify-center flex flex-wrap items-center gap-16 overflow-visible">
+            {images?.map((image, index) =>(
+              <div key={index} className="group flex flex-col flex-shrink card rounded-box w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500 hover:scale-150">
+                <img className="group-hover:animate-bounce"src={image.url} alt={image.name} title={image.name}/>
+                <div className="text-orange-600 text-lg text-center overflow-x-auto group-hover:font-black group-hover:underline">{image.name}</div>
+                <div className= "text-xs text-slate-800 blur-md overflow-x-auto group-hover:blur-0">Created on {image.createdAt.toString()}</div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
       <br></br>
       <div className="prose">
