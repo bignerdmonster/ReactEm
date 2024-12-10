@@ -8,7 +8,6 @@ import {
   serial,
   timestamp,
   varchar,
-  json
 } from "drizzle-orm/pg-core";
 
 /**

@@ -5,8 +5,8 @@ import { getMyImages } from "~/server/queries";
 export default async function HomePage() {
   const images = await getMyImages().catch((error) => {
     console.error(error);
-    return null
-    //return [{id:0,url:"https://utfs.io/f/PNDxZbTEcFzd7Pva8oB3xTwvbBE3KnJLc0t57G8CAVSlFr9m",createdAt:"the basis of authorization and permissions",name:"Sign in to see images!"}]
+    // this should be "return null" but we like to have fun here
+    return [{id:0,url:"https://utfs.io/f/PNDxZbTEcFzd7Pva8oB3xTwvbBE3KnJLc0t57G8CAVSlFr9m",createdAt:"the basis of authorization and permissions",name:"Sign in to see images!"}]
   })
   return (
     <main className=""> {/* bg-him for the funny but it's distracting for others*/}
@@ -17,8 +17,8 @@ export default async function HomePage() {
             {images?.map((image, index) =>(
               <div key={index} className="group flex flex-col flex-shrink card rounded-box w-48 p-6 bg-gradient-to-r from-cyan-500 to-fuchsia-500 hover:scale-150">
                 <img className="group-hover:animate-bounce"src={image.url} alt={image.name} title={image.name}/>
-                <div className="text-orange-600 text-lg text-center overflow-x-auto group-hover:font-black group-hover:underline">{image.name}</div>
-                <div className= "text-xs text-slate-800 blur-md overflow-x-auto group-hover:blur-0">Created on {image.createdAt.toString()}</div>
+                <div className="text-orange-600 text-lg text-center object-scale-down group-hover:font-black group-hover:underline">{image.name}</div>
+                <div className= "text-xs text-slate-800 blur-md object-scale-down group-hover:blur-0">Created on {image.createdAt.toString()}</div>
               </div>
             ))}
           </div>
