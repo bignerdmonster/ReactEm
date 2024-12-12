@@ -32,7 +32,7 @@ export default function RootLayout({
                 <summary>Pages</summary>
                 <ul className="bg-base-100 rounded-t-none p-2">
             <li><a href='/'>Home</a></li>
-            <li><a href='https://bigrat.monster'>page tbd</a></li>
+            <li><a href='/sentry-example-page'>Sentry Testing Area</a></li>
           </ul>
         </details>
       </li>
