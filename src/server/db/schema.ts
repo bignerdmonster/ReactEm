@@ -8,6 +8,7 @@ import {
   serial,
   timestamp,
   varchar,
+  integer
 } from "drizzle-orm/pg-core";
 
 /**
@@ -36,3 +37,22 @@ export const images = createTable(
     nameIndex: index("name_idx").on(example.name),
   })
 );
+export const posts = createTable(
+  "post",
+  {
+    // renamed "id" to "idtwoah" because i was getting errors with "id", don't know why this isn't a serial but whatever.
+    idtwoah: integer("idtwoah").primaryKey().generatedByDefaultAsIdentity(),
+    content: varchar("content", { length: 256 }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
+      () => new Date()
+    ),
+  },
+  // commented example out, was erroring and I don't think we need it (errored because the nameIndex was duplicate name from last one)
+  /*"(example) => ({
+    nameIndex: index("name_idx").on(example.content),
+  })*/
+);
+
