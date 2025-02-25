@@ -33,9 +33,9 @@ export const images = createTable(
       () => new Date()
     ),
   },
-  (example) => ({
+  /*(example) => ({
     nameIndex: index("name_idx").on(example.name),
-  })
+  })*/
 );
 export const posts = createTable(
   "post",

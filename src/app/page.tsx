@@ -1,6 +1,7 @@
 import Link from "next/link";
 import UploadThangButton from "./_components/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import UploadTextButton from "./_components/uploadThatText";
 import { getMyImages } from "~/server/queries";
 export default async function HomePage() {
   const images = await getMyImages().catch((error) => {
@@ -30,12 +31,13 @@ export default async function HomePage() {
         <p> Yuppers, this is cool! </p>
       </div>
       <div className="divider w-100 mx-auto content-center"></div>
-      <div className=" align-center mx-auto card bg-base-300 rounded-box grid w-3/4 h-40 place-items-center">
-        <SignedIn><p className="bg-gradient-to-r from-fucshia-500">Upload a thang here!</p>
+      <div className=" align-center mx-auto card bg-base-300 rounded-box grid w-3/4 h-auto py-10 place-items-center">
+        <SignedIn><p className="bg-gradient-to-r from-fucshia-500 to-orange-500 px-2 py-1">Upload a thang here!</p>
         <UploadThangButton className={
-          "ut-button:bg-gradient-to-l ut-button:from-fuchsia-400 ut-button:to-orange-500 ut-uploading:bg-red-400"
-          }>
-          </UploadThangButton></SignedIn>
+          "ut-button:bg-gradient-to-l ut-button:from-fuchsia-400 ut-button:to-orange-500 ut-uploading:bg-red-400 py-2"
+          }/>
+          <UploadTextButton/>
+         </SignedIn>
         <SignedOut><SignInButton>Sign In to upload a thang!</SignInButton></SignedOut>
       </div>
     </main>
